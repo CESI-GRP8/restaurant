@@ -52,7 +52,7 @@ exports.updateMenu = async (req, res) => {
 
             // Mettre à jour le chemin de l'image si une nouvelle image est téléchargée
             if (req.file) {
-                console.log("rentré dans if 1");
+                //console.log("rentré dans if 1")
                 const newImagePath = req.file.path;
                 // Supprimer l'ancienne image si elle existe
                 if (menu.image) {
