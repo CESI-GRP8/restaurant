@@ -11,6 +11,9 @@ const menuModel = new Schema({
         required: [true, "description is a required field"],
         type: String,
     },
+    image: {
+        type: String,
+    },
     crudites: {
         required: [true, "crudites is a required field"],
         type: [String],

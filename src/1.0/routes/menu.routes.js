@@ -1,16 +1,16 @@
 const express = require("express");
 const router = express.Router();
-
+const upload = require('../../config/configMulter');
 const menuController = require("../controllers/menu.controllers");
 
 // Récupérer tous les menus
 router.get('/', menuController.getAllMenus);
 
-// Créer un nouveau menu
-router.post('/', menuController.createMenu);
+// Créer un nouveau menu avec téléchargement d'image
+router.post('/', upload.single('image'), menuController.createMenu);
 
 // Mettre à jour un menu existant
-router.patch('/:id', menuController.updateMenu);
+router.patch('/:id',upload.single('image'), menuController.updateMenu);
 
 // Supprimer un menu existant
 router.delete('/:id', menuController.deleteMenu);
