@@ -7,6 +7,10 @@ const menuModel = new Schema({
         required: [true, "name is a required field"],
         type: String,
     },
+    nomRestaurant: {
+        required: [true, "nomRestaurant is a required field"],
+        type: String,
+    },
     description: {
         required: [true, "description is a required field"],
         type: String,

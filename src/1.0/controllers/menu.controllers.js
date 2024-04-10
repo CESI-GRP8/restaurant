@@ -13,12 +13,23 @@ exports.getAllMenus = async (req, res) => {
     }
 };
 
+exports.getOrdersParRestaurant = async (req, res) => {
+    const restaurantNom = req.params.restaurantNom;
+    try {
+        const menus = await Menu.find({ nomRestaurant: restaurantNom });
+        return res.status(200).json(menus);
+    } catch (error) {
+        console.log(error);
+        return res.status(400).json({ message: error.message });
+    }
+};
 // Créer un nouveau menu
 exports.createMenu = async (req, res) => {
     // Vérifier si une image est téléchargé
         
         const menu = new Menu({
             name: req.body.name,
+            nomRestaurant: req.body.name,
             description: req.body.description,
             crudites: req.body.crudites,
             sauces: req.body.sauces,
@@ -86,6 +97,9 @@ exports.updateMenu = async (req, res) => {
 			// Mettre à jour d'autres champs si nécessaire
 			if (req.body.name) {
 				menu.name = req.body.name;
+			}
+            if (req.body.nomRestaurant) {
+				menu.nomRestaurant = req.body.nomRestaurant;
 			}
 			if (req.body.description) {
 				menu.description = req.body.description;
