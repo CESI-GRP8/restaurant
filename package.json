@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "test": "exit 0",
     "dev": "nodemon server.js",
     "prod": "node server.js"
   },
