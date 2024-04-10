@@ -5,6 +5,7 @@ const menuController = require("../controllers/menu.controllers");
 
 // Récupérer tous les menus
 router.get('/', menuController.getAllMenus);
+router.get('', menuController.getMenusParRestaurant);
 
 // Créer un nouveau menu avec téléchargement d'image
 router.post('/', upload.single('image'), menuController.createMenu);
