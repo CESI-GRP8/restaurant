@@ -1,0 +1,32 @@
+name: Continous Integration
+
+on:
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-deploy:
+    name: Compilation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout-code
+        uses: actions/checkout@v4
+
+      - name: setup NodeJS env
+        uses: actions/setup-node@v4       
+        with:
+          node-version: 21
+      
+      #- name: Install dependancises
+      #  run: npm ci
+      #- run: npm build
+
+      #run les test unitaire de notre code
+      - run: npm test
+
+      #crée version zip du projet (Nom-projet-1.0.0.tgz)
+      #- run: npm pack 
+
+      
